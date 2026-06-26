@@ -1,0 +1,242 @@
+<html>
+
+  <head>
+    <style>
+      @page {
+        size: A4;
+        margin: 8mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #222;
+        font-size: 12px;
+        line-height: 1.35;
+        margin: 0;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 12px;
+      }
+
+      .logo {
+        width: 80px;
+        margin-bottom: 4px;
+      }
+
+      .header h2 {
+        margin: 0;
+        font-size: 19px;
+      }
+
+      .header h3 {
+        margin: 3px 0 0;
+        font-size: 14px;
+        font-weight: normal;
+        color: #555;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 10px 0;
+      }
+
+      .images {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+      }
+
+      .passport,
+      .qr {
+        width: 110px;
+        height: 110px;
+        object-fit: contain;
+        border: 1px solid #ccc;
+        padding: 3px;
+      }
+
+      .passport {
+        height: 130px;
+        object-fit: cover;
+      }
+
+      .details {
+        margin-bottom: 15px;
+      }
+
+      .field {
+        margin-bottom: 8px;
+      }
+
+      .label {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #777;
+        font-weight: bold;
+        margin-bottom: 2px;
+      }
+
+      .value {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .centre-box {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 4px;
+      }
+
+      .section-title {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #333;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 4px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 6px;
+      }
+
+      th {
+        background: #f2f2f2;
+        text-align: left;
+        font-size: 11px;
+        padding: 6px;
+        border: 1px solid #ccc;
+      }
+
+      td {
+        padding: 6px;
+        border: 1px solid #ddd;
+        font-size: 11px;
+      }
+
+      tbody tr:nth-child(even) {
+        background: #fafafa;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="header">
+
+      <img src="{{logo}}" class="logo" />
+
+      <h3>HEALTH RECORDS OFFICERS REGISTRATION BOARD OF NIGERIA</h3>
+
+      <h5>Examination Admission Slip</h5>
+
+    </div>
+
+    <hr />
+
+    <div class="images">
+
+      <img src="{{passport}}" class="passport" />
+
+      <img src="{{qrCode}}" class="qr" />
+
+    </div>
+
+    <div class="details">
+
+      <div class="field">
+        <div class="label">Candidate Name</div>
+        <div class="value">{{CandidateName}}</div>
+      </div>
+
+      <div class="field">
+        <div class="label">Examination Number</div>
+        <div class="value">{{ExamNumber}}</div>
+      </div>
+
+      <div class="field">
+        <div class="label">School</div>
+        <div class="value">{{School}}</div>
+      </div>
+
+      <div class="field">
+        <div class="label">State</div>
+        <div class="value">{{State}}</div>
+      </div>
+
+    </div>
+
+    <div class="centre-box">
+
+      <div class="section-title">
+        Examination Centre
+      </div>
+
+      <div class="field">
+        <div class="label">Centre ID</div>
+        <div class="value">{{CentreID}}</div>
+      </div>
+
+      <div class="field">
+        <div class="label">Exam State</div>
+        <div class="value">{{ExamState}}</div>
+      </div>
+
+      <div class="field" style="margin-bottom:0;">
+        <div class="label">Centre Address</div>
+        <div class="value">{{ExamCentre}}</div>
+      </div>
+
+    </div>
+
+    <div class="section-title">
+      Examination Timetable
+    </div>
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th style="width:18%">Paper</th>
+          <th>Title</th>
+          <th style="width:25%">Date</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        {{#each papers}}
+
+          <tr>
+
+            <td>{{code}}</td>
+
+            <td>{{title}}</td>
+
+            <td>{{date}}</td>
+
+          </tr>
+
+        {{/each}}
+
+      </tbody>
+
+    </table>
+
+  </body>
+
+</html>
