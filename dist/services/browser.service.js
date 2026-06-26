@@ -7,12 +7,17 @@ exports.closeBrowser = exports.getBrowser = void 0;
 const puppeteer_1 = __importDefault(require("puppeteer"));
 let browser = null;
 const getBrowser = async () => {
-    if (!browser) {
-        browser = await puppeteer_1.default.launch({
-            headless: true,
-            args: ["--no-sandbox", "--disable-setuid-sandbox"],
-        });
+    if (browser) {
+        return browser;
     }
+    browser = await puppeteer_1.default.launch({
+        headless: true,
+        args: [
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--disable-dev-shm-usage",
+        ],
+    });
     return browser;
 };
 exports.getBrowser = getBrowser;
