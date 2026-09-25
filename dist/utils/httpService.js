@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.httpService = void 0;
 const axios_1 = __importDefault(require("axios"));
-const route = "https://mindtech.ng/centredata";
+const route = "https://exams.mindtech.ng/hrcentredata";
 const httpService = axios_1.default.create({
     baseURL: route,
     timeout: 60000,

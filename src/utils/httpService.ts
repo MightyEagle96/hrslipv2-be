@@ -1,5 +1,5 @@
 import axios from "axios";
-const route = "https://mindtech.ng/centredata";
+const route = "https://exams.mindtech.ng/hrcentredata";
 
 const httpService = axios.create({
   baseURL: route,
