@@ -46,6 +46,13 @@ const generateExamSlip = async (req, res) => {
             });
         }
         const { data, status } = await httpService_1.httpService.get(`/${centreId}`);
+        if (data.error) {
+            return res.status(400).json({
+                success: false,
+                message: data.error,
+            });
+        }
+        console.log(data);
         if (status !== 200) {
             return res.status(400).json({
                 success: false,
